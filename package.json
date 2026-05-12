@@ -1,0 +1,22 @@
+{
+  "name": "playwright-healthcare-ui-demo",
+  "version": "1.0.0",
+  "description": "Lightweight Playwright + TypeScript demo project with smoke and regression test coverage for a publicly accessible healthcare-related web application.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astrilets-qa/playwright-healthcare-ui-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/astrilets-qa/playwright-healthcare-ui-demo/issues"
+  },
+  "homepage": "https://github.com/astrilets-qa/playwright-healthcare-ui-demo#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.7.0"
+  }
+}

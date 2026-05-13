@@ -29,5 +29,5 @@ npx playwright test
 ## Run Smoke Tests
 npx playwright test --grep @smoke
 
-## Run Smoke Tests
+## Run Regression Tests
 npx playwright test --grep @regression

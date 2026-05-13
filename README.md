@@ -23,12 +23,11 @@ GitHub Actions workflow included for automated Playwright test execution.
 
 ## Run Tests
 ```bash
+## Run All Tests
 npx playwright test
 
 ## Run Smoke Tests
-```bash
 npx playwright test --grep @smoke
 
 ## Run Smoke Tests
-```bash
 npx playwright test --grep @regression

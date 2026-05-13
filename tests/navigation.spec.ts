@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 
 test.beforeEach(async ({page}) =>{
-  const homepage = new HomePage(page);
-  await homepage.goto();
+  const homePage = new HomePage(page);
+  await homePage.goto();
 });
 
 

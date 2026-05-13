@@ -1,15 +1,16 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 
-test.beforeEach(async ({page}) =>{
-  const homePage = new HomePage(page);
+let homePage: HomePage;
+
+
+test.beforeEach(async ({ page }) => {
+  homePage = new HomePage(page);
   await homePage.goto();
 });
 
 
-test('@smoke homepage displays main navigation links', async ({ page }) => {
-  const homePage =  new HomePage(page);
-  
+test('@smoke homepage displays main navigation links', async ({ page }) => {  
   await expect(homePage.mainNavigation).toBeVisible();
   
   await expect(homePage.navigationLink('For Practices')).toBeVisible();
@@ -21,8 +22,6 @@ test('@smoke homepage displays main navigation links', async ({ page }) => {
 });
 
 test('@regression For Practices dropdown displays submenu links', async ({ page }) => {
-  const homePage = new HomePage(page);
-
   await homePage.navigationLink('For Practices').hover();
 
   await expect(homePage.dropdownMenuItem('For Practice', 'Overview')).toBeVisible();
@@ -34,8 +33,6 @@ test('@regression For Practices dropdown displays submenu links', async ({ page 
 });
 
 test('@regression For Reps dropdown displays submenu links', async ({ page }) => {
-  const homePage = new HomePage(page);
-
   await homePage.navigationLink('For Reps').hover();
 
   await expect(homePage.dropdownMenuItem('For Reps', 'Overview')).toBeVisible();
@@ -45,9 +42,7 @@ test('@regression For Reps dropdown displays submenu links', async ({ page }) =>
   await expect(homePage.dropdownMenuItem('For Reps', 'For Enterprise')).toBeVisible();
 });
 
-test('@regression Resources dropdown displays submenu links', async ({ page }) => {
-  const homePage = new HomePage(page);
-  
+test('@regression Resources dropdown displays submenu links', async ({ page }) => {  
   await homePage.navigationLink('Resources').hover();
   
   await expect(homePage.dropdownMenuItem('Resources', 'Resource Library', true)).toBeVisible();
@@ -57,9 +52,7 @@ test('@regression Resources dropdown displays submenu links', async ({ page }) =
   await expect(homePage.dropdownMenuItem('Resources', 'Support')).toBeVisible();
 });
 
-test('@regression Company dropdown displays submenu links', async ({ page }) => {
-  const homePage = new HomePage(page);
-  
+test('@regression Company dropdown displays submenu links', async ({ page }) => {  
   await homePage.navigationLink('Company').hover();
 
   await expect(homePage.dropdownMenuItem('Company', 'About Us')).toBeVisible();
@@ -68,14 +61,12 @@ test('@regression Company dropdown displays submenu links', async ({ page }) => 
   await expect(homePage.dropdownMenuItem('Company', 'Contact Us')).toBeVisible();
 });
 
-test('@regression Try it Free button leads users to the join page', async ({ page }) => {
-  const homePage = new HomePage(page);
-  
+test('@regression Try it Free button leads users to the join page', async ({ page }) => {  
   await homePage.navigationLink('Try it Free').click();
 
   await expect(page).toHaveURL(/join/);
 
-  await expect (page.getByRole ('heading', {name: 'For New Industry Representatives'})).toBeVisible();
-  await expect (page.getByRole ('heading', {name: 'For New Medical Practices'})).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'For New Industry Representatives' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'For New Medical Practices' })).toBeVisible();
 
 });
